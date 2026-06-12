@@ -12,18 +12,32 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
+    maven {
+        url = uri("https://maven.pkg.github.com/theelementguy/material-lib")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"modid" {
+		"tegmoremetals" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
 	}
 
+}
+
+fabricApi {
+    configureDataGeneration() {
+        client = true
+    }
 }
 
 dependencies {
@@ -34,6 +48,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    api "com.github.theelementguy:tegmatlibf:${tegmatlib_version}"
 	
 }
 

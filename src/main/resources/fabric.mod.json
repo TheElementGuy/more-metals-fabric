@@ -1,34 +1,29 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "tegmoremetals",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "TheElementGuy's More Metals and Ores",
+	"description": "More metals! More ores! Yay! (See the Curseforge/Modrinth for more)",
 	"authors": [
-		"Me!"
+		"Jude Rasmussen"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/TheElementGuy/more-metals-fabric"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/tegmoremetals/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"net.theelementguy.tegmoremetals.MoreMetalsMod"
 		],
 		"client": [
-			"com.example.client.ExampleModClient"
-		]
+			"net.theelementguy.tegmoremetals.client.MoreMetalsModClient"
+		],
+        "fabric-datagen": [
+            "net.theelementguy.tegmoremetals.client.data.MoreMetalsDataGenerators"
+        ]
 	},
-	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.19.3",
 		"minecraft": "~26.1.2",
