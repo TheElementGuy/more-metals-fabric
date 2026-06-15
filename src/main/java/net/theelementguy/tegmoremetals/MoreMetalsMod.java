@@ -3,6 +3,9 @@ package net.theelementguy.tegmoremetals;
 import com.github.theelementguy.tegmatlibf.block.TEGMatLibBlockProvider;
 import com.github.theelementguy.tegmatlibf.core.FullyConfiguredMaterialHolder;
 import com.github.theelementguy.tegmatlibf.item.TEGMatLibItemProvider;
+import com.github.theelementguy.tegmatlibf.trim.TEGMatLibTrimMaterialProvider;
+import com.github.theelementguy.tegmatlibf.util.TEGMatLibCreativeModeTabFiller;
+import com.github.theelementguy.tegmatlibf.worldgen.TEGMatLibBiomeModifier;
 import net.fabricmc.api.ModInitializer;
 
 import net.theelementguy.tegmoremetals.matlib.MoreMetalsMaterials;
@@ -27,9 +30,14 @@ public class MoreMetalsMod implements ModInitializer {
 
 		TEGMatLibItemProvider itemProvider = new TEGMatLibItemProvider(MATERIALS);
 		TEGMatLibBlockProvider blockProvider = new TEGMatLibBlockProvider(MATERIALS);
+		TEGMatLibBiomeModifier biomeModifier = new TEGMatLibBiomeModifier(MATERIALS);
 
 		itemProvider.registerItems();
 		blockProvider.registerBlocks();
+
+		biomeModifier.run();
+
+		TEGMatLibCreativeModeTabFiller.build(MATERIALS);
 
 		LOGGER.info("This is More Metals speaking to you LIVE from initialization.");
 	}

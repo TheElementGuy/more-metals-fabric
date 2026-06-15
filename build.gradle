@@ -101,3 +101,7 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+
+tasks.named("jar") {
+    archiveFileName = "[Fabric] ${mod_name_short} ${mod_version}.jar"
+}

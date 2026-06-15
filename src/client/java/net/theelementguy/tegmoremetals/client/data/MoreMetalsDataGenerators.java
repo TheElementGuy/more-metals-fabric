@@ -17,6 +17,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataProvider;
+import net.minecraft.tags.BlockTags;
 import net.theelementguy.tegmoremetals.MoreMetalsMod;
 import net.theelementguy.tegmoremetals.matlib.MoreMetalsMaterials;
 import org.jetbrains.annotations.NotNull;
@@ -28,6 +29,8 @@ public class MoreMetalsDataGenerators implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+
+		System.out.println(BlockTags.INCORRECT_FOR_DIAMOND_TOOL.location());
 
 		pack.addProvider((o, c) -> new TEGMatLibBlockLootTableProvider(o, c, MoreMetalsMod.MATERIALS));
 		pack.addProvider((o, c) -> new TEGMatLibItemTagProvider(o, c, MoreMetalsMod.MATERIALS));
@@ -46,4 +49,14 @@ public class MoreMetalsDataGenerators implements DataGeneratorEntrypoint {
 
 	}
 
+	@Override
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		TEGMatLibConfiguredFeatureProvider configuredFeatures = new TEGMatLibConfiguredFeatureProvider(MoreMetalsMod.MATERIALS);
+		TEGMatLibPlacedFeatureProvider placedFeatures = new TEGMatLibPlacedFeatureProvider(MoreMetalsMod.MATERIALS);
+		TEGMatLibTrimMaterialProvider trimMaterials = new TEGMatLibTrimMaterialProvider(MoreMetalsMod.MATERIALS);
+
+		registryBuilder.add(Registries.TRIM_MATERIAL, trimMaterials::bootstrap);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, configuredFeatures::bootstrap);
+		registryBuilder.add(Registries.PLACED_FEATURE, placedFeatures::bootstrap);
+	}
 }
