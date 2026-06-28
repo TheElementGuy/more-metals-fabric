@@ -1,7 +1,7 @@
 package net.theelementguy.tegmoremetals.client.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class MoreMetalsBiomeTagsProvider extends FabricTagsProvider<Biome> {
-    public MoreMetalsBiomeTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.@NotNull Provider> provider) {
+public class MoreMetalsBiomeTagsProvider extends FabricTagProvider<Biome> {
+    public MoreMetalsBiomeTagsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.@NotNull Provider> provider) {
         super(output, Registries.BIOME, provider);
     }
 
