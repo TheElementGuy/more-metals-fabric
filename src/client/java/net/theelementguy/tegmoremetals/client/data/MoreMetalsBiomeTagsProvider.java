@@ -21,6 +21,6 @@ public class MoreMetalsBiomeTagsProvider extends FabricTagProvider<Biome> {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider p_256485_) {
-        builder(MoreMetalsTags.Biomes.IS_END_AND_NOT_MAIN_ISLAND).add(Biomes.END_MIDLANDS).add(Biomes.END_HIGHLANDS).add(Biomes.END_BARRENS).add(Biomes.SMALL_END_ISLANDS);
+        tag(MoreMetalsTags.Biomes.IS_END_AND_NOT_MAIN_ISLAND).add(Biomes.END_MIDLANDS).add(Biomes.END_HIGHLANDS).add(Biomes.END_BARRENS).add(Biomes.SMALL_END_ISLANDS);
     }
 }
