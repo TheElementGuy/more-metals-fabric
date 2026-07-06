@@ -1,6 +1,5 @@
 package net.theelementguy.tegmoremetals.client.data;
 
-import com.github.theelementguy.tegmatlibf.client.data.TEGMatLibEquipmentAssetProvider;
 import com.github.theelementguy.tegmatlibf.client.data.TEGMatLibModelProvider;
 import com.github.theelementguy.tegmatlibf.core.FullyConfiguredMaterialHolder;
 import com.github.theelementguy.tegmatlibf.data.*;
@@ -37,7 +36,6 @@ public class MoreMetalsDataGenerators implements DataGeneratorEntrypoint {
 		pack.addProvider((o, c) -> new TEGMatLibRecipeProvider(o, c, MoreMetalsMod.MATERIALS));
 		pack.addProvider((o, c) -> new TEGMatLibLanguageProvider(o, c, MoreMetalsMod.MATERIALS));
 		pack.addProvider((o, c) -> new TEGMatLibModelProvider(o, c, MoreMetalsMod.MATERIALS));
-		pack.addProvider((o, c) -> new TEGMatLibEquipmentAssetProvider(o, MoreMetalsMod.MATERIALS));
 		pack.addProvider(MoreMetalsBiomeTagsProvider::new);
 
 		TEGMatLibConfiguredFeatureProvider configuredFeatures = new TEGMatLibConfiguredFeatureProvider(MoreMetalsMod.MATERIALS);
