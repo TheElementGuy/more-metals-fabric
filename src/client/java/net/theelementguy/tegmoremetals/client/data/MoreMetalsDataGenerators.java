@@ -56,7 +56,7 @@ public class MoreMetalsDataGenerators implements DataGeneratorEntrypoint {
 		TEGMatLibTrimMaterialProvider trimMaterials = new TEGMatLibTrimMaterialProvider(MoreMetalsMod.MATERIALS);
 
 		registryBuilder.add(Registries.TRIM_MATERIAL, trimMaterials::bootstrap);
-		registryBuilder.add(Registries.CONFIGURED_FEATURE, configuredFeatures::bootstrap);
+		registryBuilder.add(Registries.FEATURE, configuredFeatures::bootstrap);
 		registryBuilder.add(Registries.PLACED_FEATURE, placedFeatures::bootstrap);
 	}
 }
